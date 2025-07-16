@@ -187,20 +187,26 @@ export default function WellnessCoachSite() {
             <p style={{ maxWidth: "600px", margin: "0 auto" }}>
               Ready to begin your journey? Schedule a coaching session using the button below.
             </p>
-            <button
-              style={{
-                marginTop: "1.5rem",
-                padding: "0.75rem 1.5rem",
-                fontSize: "1rem",
-                backgroundColor: "#7e22ce",
-                color: "white",
-                border: "none",
-                borderRadius: "0.5rem",
-                cursor: "pointer",
-              }}
-            >
-              Book Now
-            </button>
+            <a
+  href="https://calendly.com/zenfem/new-meeting"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: "inline-block",
+    marginTop: "1.5rem",
+    padding: "0.75rem 1.5rem",
+    fontSize: "1rem",
+    backgroundColor: "#7e22ce",
+    color: "white",
+    textDecoration: "none",
+    border: "none",
+    borderRadius: "0.5rem",
+    cursor: "pointer",
+  }}
+>
+  Book Now
+</a>
+
           </div>
         </section>
       </div>
