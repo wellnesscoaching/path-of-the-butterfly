@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function WellnessCoachSite() {
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
+
   return (
     <>
       <div
@@ -209,6 +211,80 @@ export default function WellnessCoachSite() {
 
           </div>
         </section>
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+  <button
+    onClick={() => setShowDisclaimer(true)}
+    style={{
+      background: "none",
+      border: "none",
+      fontFamily: "Georgia, serif",
+      fontSize: "0.9rem",
+      color: "#888",
+      textDecoration: "underline",
+      cursor: "pointer"
+    }}
+  >
+    Disclaimer
+  </button>
+</div>
+{showDisclaimer && (
+  <div
+    onClick={() => setShowDisclaimer(false)}
+    style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "rgba(0,0,0,0.6)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 1000
+    }}
+  >
+    <div
+      onClick={(e) => e.stopPropagation()}
+      style={{
+        background: "white",
+        padding: "2rem",
+        borderRadius: "1rem",
+        maxWidth: "600px",
+        fontFamily: "Georgia, serif",
+        color: "#333",
+        lineHeight: 1.5,
+        boxShadow: "0 4px 8px rgba(0,0,0,0.3)"
+      }}
+    >
+      <h3 style={{ marginTop: 0, color: "#6b21a8" }}>Disclaimer</h3>
+      <p>
+        This website offers general wellness information and coaching services intended to support personal development, empowerment, and lifestyle goals.
+        It is not a substitute for medical advice, diagnosis, or treatment. Wellness coaching is not therapy or mental health care. No guarantees of specific
+        outcomes are made.
+        <br /><br />
+        Always consult a licensed medical or mental health professional for clinical concerns or emergencies.
+        By using this site, you agree to these terms.
+      </p>
+      <div style={{ textAlign: "right", marginTop: "1.5rem" }}>
+        <button
+          onClick={() => setShowDisclaimer(false)}
+          style={{
+            backgroundColor: "#6b21a8",
+            color: "white",
+            border: "none",
+            padding: "0.5rem 1rem",
+            borderRadius: "0.5rem",
+            fontFamily: "Georgia, serif",
+            cursor: "pointer"
+          }}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
       </div>
     </>
   );
