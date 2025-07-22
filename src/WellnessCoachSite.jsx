@@ -82,16 +82,17 @@ export default function WellnessCoachSite() {
   style={{
     position: "absolute",
     top: "auto",
-    left: "1rem",
-    marginTop: "3rem", // adds spacing below the banner
+    left: window.innerWidth < 600 ? "0.5rem" : "1rem",
+    marginTop: "3rem",
     zIndex: 800,
     display: "flex",
     flexDirection: "column",
     gap: "1rem",
-    width: "100px", // new
-    paddingLeft: "1rem",
+    width: "100px",
+    paddingLeft: window.innerWidth < 600 ? "0.25rem" : "1rem",
   }}
 >
+
   <button
     onClick={() => setShowDrawer("practice")}
     style={{
@@ -143,19 +144,22 @@ export default function WellnessCoachSite() {
 {/* Slide-Out Drawer Panel */}
 {showDrawer && (
   <div
-    style={{
-      position: "fixed",
-      top: "0",
-      left: "120px", // matches paddingLeft
-      height: "100%",
-      width: "calc(100% - 200px)",
-      backgroundColor: "white",
-      padding: "2rem",
-      boxShadow: "2px 0 5px rgba(0,0,0,0.2)",
-      zIndex: 600,
-      overflowY: "auto",
-    }}
-  >
+  style={{
+    position: "fixed",
+    top: 0,
+    left: "120px", // keep as-is
+    height: "100vh", // ✅ ensure it fills screen height
+    width: "calc(100% - 200px)",
+    backgroundColor: "white",
+    padding: "2rem",
+    paddingBottom: "4rem", // ✅ gives breathing room at the bottom
+    boxShadow: "2px 0 5px rgba(0,0,0,0.2)",
+    zIndex: 600,
+    overflowY: "auto",
+    WebkitOverflowScrolling: "touch", // ✅ smooth scrolling on iOS
+  }}
+>
+
     <button
       onClick={() => setShowDrawer(null)}
       style={{
@@ -214,24 +218,31 @@ export default function WellnessCoachSite() {
 
 
 
-    {showDrawer === "about" && (
-      <div>
-        <h2
-          style={{
-            fontFamily: "'Dancing Script', cursive",
-            fontSize: "1.8rem",
-            fontWeight: "normal",
-            color: "#4b0082",
-            marginBottom: "1rem",
-          }}
-        >
-          About
-        </h2>
-        <p style={{ lineHeight: 1.6 }}>
-          [content coming soon.]
-        </p>
-      </div>
-    )}
+{showDrawer === "about" && (
+  <div>
+    <h2
+      style={{
+        fontFamily: "'Dancing Script', cursive",
+        fontSize: "1.8rem",
+        fontWeight: "normal",
+        color: "#4b0082",
+        marginBottom: "1rem",
+      }}
+    >
+      About
+    </h2>
+    <p style={{ lineHeight: 1.6 }}>
+      I’m a certified Wellness Coach I and licensed massage therapist with a deep belief in the body’s ability to heal and transform. I integrate practices like chiropractic care and yoga into my daily life, and I bring that same holistic approach to supporting others.
+
+      <br /><br />
+      I’ve spent over eight years helping people identify their goals and make meaningful changes—always with empathy, intention, and care. As a mother of two, I understand how real life can be, and how important it is to find wellness practices that actually fit.
+
+      <br /><br />
+      Whether you’re seeking balance, clarity, or momentum, I’m here to help you take that next step.
+    </p>
+  </div>
+)}
+
 
     {showDrawer === "book" && (
       <div>
@@ -296,11 +307,15 @@ export default function WellnessCoachSite() {
     fontWeight: "500",
     marginBottom: "1rem",
     fontFamily: "'Dancing Script', cursive",
-    color: "#4b0082"  // Optional: rich soft purple
+    color: "#4b0082",
+    lineHeight: "1.2",
+    maxWidth: "100%",
+    wordWrap: "break-word",
   }}
 >
   Welcome
 </h2>
+
 
             <p style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto" }}>
               Welcome to a space for transformation and growth. As your Wellness Coach,
